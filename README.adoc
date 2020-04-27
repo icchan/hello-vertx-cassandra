@@ -1,4 +1,4 @@
-= Hello
+= Hello Kotlin + Vert.x + Cassandra
 
 image:https://img.shields.io/badge/vert.x-3.9.0-purple.svg[link="https://vertx.io"]
 
@@ -35,6 +35,11 @@ To package your application:
 To run your application:
 ```
 ./gradlew clean run
+```
+
+Call the API (running on localhost)
+```
+curl http://localhost:8888/nookmiles/isabelle
 ```
 
 == Help
