@@ -1,0 +1,47 @@
+= Hello
+
+image:https://img.shields.io/badge/vert.x-3.9.0-purple.svg[link="https://vertx.io"]
+
+To use this code please set up a Cassandra database on localhost and insert this data
+```
+CREATE KEYSPACE helloks
+  WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
+
+
+CREATE TABLE miles(
+    userid text PRIMARY KEY,
+    balance int
+);
+
+INSERT INTO miles (userid,balance) values ('tom',1000000);
+INSERT INTO miles (userid,balance) values ('isabelle',5000);
+INSERT INTO miles (userid,balance) values ('blathers',2200);
+INSERT INTO miles (userid,balance) values ('kk',66000);
+INSERT INTO miles (userid,balance) values ('gulliver',23);
+```
+
+== Building
+
+To launch your tests:
+```
+./gradlew clean test
+```
+
+To package your application:
+```
+./gradlew clean assemble
+```
+
+To run your application:
+```
+./gradlew clean run
+```
+
+== Help
+
+* https://vertx.io/docs/[Vert.x Documentation]
+* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
+* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
+* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+
+
