@@ -66,12 +66,13 @@ class MainVerticle : AbstractVerticle() {
                                 // send a response
                                 response.end(Json.encodePrettily(Balance(name = row.getString(0), miles = row.getInt(1))))
                             } else {
-                                // TODO handle no rows returned
+                                // handle no rows returned
                                 response.end(Json.encodePrettily(Error("user not found")))
                             }
                         } else {
                             println("Unable to fetch a row for user: $userId")
                             one.cause().printStackTrace()
+                            response.statusCode = 500
                             response.end(Json.encodePrettily(Error("fetch error")))
                         }
                     }
@@ -82,6 +83,7 @@ class MainVerticle : AbstractVerticle() {
                 preparedStatementResult.cause().printStackTrace()
 
                 // send a response
+                response.statusCode = 500
                 response.end(Json.encodePrettily(Error("query error")))
             }
         }
